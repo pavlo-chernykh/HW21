@@ -185,3 +185,94 @@
 // //   }
 // //   count++;
 // // }, 500);
+
+// function createOrder(orderName) {
+//   let index = 0;
+//   const res = [];
+
+//   setTimeout(function tik() {
+//     if (index < orderName.length) {
+//       res.push(`${orderName[index].item} done`);
+
+//       setTimeout(tik, orderName[index].time);
+//       index++;
+//     }
+//   }, orderName[index].time);
+
+//   return res;
+// }
+// const result = createOrder(menu.burgerMenu);
+// // eslint-disable-next-line no-console
+// console.log(result);
+
+// function createOrder(orderName) {
+//   let index = 0;
+//   const res = [];
+//   const fnCB = () => {
+//     if (index === orderName.length) {
+//       return;
+//     }
+//     const orderItem = orderName[index].item;
+//     if (index <= orderName.length) {
+//       res[index] = `${orderItem} done`;
+//       // eslint-disable-next-line no-console
+//       console.log(res);
+//       setTimeout(fnCB, orderName[index].time);
+//       index++;
+//     }
+//   };
+
+//   setTimeout(fnCB, orderName[index].time);
+//   return res;
+// }
+// const result = createOrder(menu.burgerMenu);
+// // eslint-disable-next-line no-console
+// console.log(result);
+
+//// final
+
+// function fnCB(resArr, item, index) {
+//   resArr[index] = `${item.item} done`;
+//   alert(` ${resArr} `);
+// }
+// function createOrder(orderName) {
+//   const resArr = [];
+//   orderName.forEach((item, index) => {
+//     setTimeout(() => {
+//       fnCB(resArr, item, index);
+//     }, item.time);
+//   });
+//   // if (resArr.length === orderName.length) {
+//   //   console.log('rer');
+//   // }
+//   return resArr;
+// }
+//   const result = createOrder(menu.burgerMenu);
+//   // eslint-disable-next-line no-console
+//   console.log(result);
+
+// function createOrder(orderName, cb) {
+//   const resArr = [];
+//   orderName.forEach((item, index) => {
+//     setTimeout(() => {
+//       resArr[index] = `${item.item} done`;
+//       if (orderName.length === Object.keys(resArr).length) {
+//         cb(resArr);
+//       }
+//       // cb(resArr);
+//       // cb(resArr);
+//     }, item.time);
+//   });
+//   // if (resArr.length === orderName.length) {
+//   //   console.log('rer');
+//   // }
+//   return resArr;
+// }
+// createOrder(menu.burgerMenu, (resArr) => alert(resArr));
+
+// function containsEmptySpace(arr) {
+//   const empty = arr.findIndex((item) => !item);
+//   const notFoundIndex = -1;
+//   return (empty === notFoundIndex) ? false : true;
+// }
+

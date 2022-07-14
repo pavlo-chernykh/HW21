@@ -11,7 +11,7 @@ const menu = {
     {
       item: 'Ff',
       time: 1000
-    }
+    },
   ],
   pizzaMenu: [
     {
@@ -29,22 +29,17 @@ const menu = {
     }
   ]
   };
-
-function createOrder(orderName) {
-  let index = 0;
-  const res = [];
-
-  setTimeout(function tik() {
-    if (index < orderName.length) {
-      res.push(`${orderName[index].item} done`);
-
-      setTimeout(tik, orderName[index].time);
-      index++;
-    }
-  }, orderName[index].time);
-
-  return res;
+function createOrder(orderName, cb) {
+  const resArr = [];
+  orderName.forEach((item, index) => {
+    setTimeout(() => {
+      resArr[index] = `${item.item} done`;
+      if (orderName.length === Object.keys(resArr).length) {
+        cb(resArr);
+      }
+    }, item.time);
+  });
+  return resArr;
 }
-const result = createOrder(menu.burgerMenu);
-// eslint-disable-next-line no-console
-console.log(result);
+createOrder(menu.burgerMenu, (resArr) => alert(resArr));
+
